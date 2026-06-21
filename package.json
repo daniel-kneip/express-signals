@@ -1,0 +1,59 @@
+{
+  "name": "my-cool-package",
+  "version": "0.1.0",
+  "description": "My cool description",
+  "keywords": [
+    "my",
+    "cool",
+    "keywords"
+  ],
+  "license": "MIT",
+  "author": "Daniel Kneip",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniel-kneip/my-cool-package.git"
+  },
+  "homepage": "https://github.com/daniel-kneip/my-cool-package#readme",
+  "bugs": "https://github.com/daniel-kneip/my-cool-package/issues",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "knip": "knip",
+    "check:package": "publint && attw --pack . --ignore-rules cjs-resolves-to-esm",
+    "check": "pnpm lint && pnpm format:check && pnpm knip && pnpm test:coverage",
+    "prepack": "tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@arethetypeswrong/cli": "0.18.3",
+    "@eslint/js": "10.0.1",
+    "@vitest/coverage-v8": "4.1.9",
+    "eslint": "10.5.0",
+    "eslint-config-prettier": "10.1.8",
+    "knip": "6.17.1",
+    "prettier": "3.8.4",
+    "publint": "0.3.21",
+    "typescript-eslint": "8.61.1",
+    "vitest": "4.1.9"
+  },
+  "packageManager": "pnpm@11.8.0"
+}
